@@ -57,7 +57,7 @@ def getGardinerStringFromUnicode(characters):
     #a comma seperated string.
 
     gardinersigns=[]
-    patt = re.compile('EGYPTIAN HIEROGLYPH (?P<category>[A-Za-z])0+(?P<glyph>[1-9]{1,3})(?P<variant>[a-z]{0,1})')
+    patt = re.compile(r'EGYPTIAN HIEROGLYPH (?P<category>[A-Za-z]{1,3})0*(?P<glyph>[0-9]{1,3})(?P<variant>[a-z]+){0,1}')
     for char in list(characters):
         udata = unicodedata.name(char)
         res=patt.match(udata).groupdict()
